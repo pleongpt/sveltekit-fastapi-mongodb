@@ -14,6 +14,7 @@ from app.db.mongodb import AsyncIOMotorClient
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
+
 class AuthenticationService():
     """
     An API to handle user authentication.

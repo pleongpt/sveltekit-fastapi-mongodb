@@ -22,7 +22,7 @@ async def create_user(
     obj_in = models.UserCreate(**obj_in.dict())
     user = await services.registration.register_new_user(db, obj_in)
     access_token = models.AccessToken(
-        access_token = services.authentication.create_access_token_for_user(user=user), token_type="bearer"
+        access_token=services.authentication.create_access_token_for_user(user=user), token_type="bearer"
     )
     return models.UserPublic(**user.dict(), access_token=access_token)
 

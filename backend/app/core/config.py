@@ -1,5 +1,5 @@
 import secrets
-import os 
+import os
 from typing import Any, Dict, List, Optional, Union
 
 from pydantic import AnyHttpUrl, BaseSettings, EmailStr, HttpUrl
@@ -11,7 +11,7 @@ class Settings(BaseSettings):
 
     # JWT Token Config
     SECRET_KEY: str = os.environ.get('SECRET_KEY')
-    ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 7 #7 days
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 7  # 7 days
     JWT_ALGORITHM: str = "HS256"
     JWT_AUDIENCE: str = "smartgoo:auth"
     JWT_TOKEN_PREFIX = "Bearer"
@@ -56,7 +56,6 @@ class Settings(BaseSettings):
 
     # MongodDB Collections
     USERS_COLLECTION = 'users'
-
 
     class Config:
         case_sensitive = True

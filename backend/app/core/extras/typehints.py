@@ -1,5 +1,6 @@
 from bson.objectid import ObjectId
 
+
 class MongoIDType(ObjectId):
     """
     A custom type for MongoDB. Refer to this repo:

@@ -11,11 +11,11 @@ class CRUDUser():
     collection: str = settings.USERS_COLLECTION
 
     async def get_by_email(self, db: AsyncIOMotorClient, email: EmailStr) -> Optional[models.UserInDB]:
-        user = await db[self.collection].find_one({"email": email})
-        if not user:
+        user_record = await db[self.collection].find_one({"email": email})
+        if not user_record:
             return None
         
-        return models.UserInDB(**user)
+        return models.UserInDB(**user_record)
 
     async def create(self, db: AsyncIOMotorClient, user_in: models.UserCreate) -> models.UserInDB:
         doc = await db[self.collection].insert_one(user_in.dict())
